@@ -12,6 +12,7 @@ document.addEventListener('click', e => {
     return;
   }
 
+  // heyoooooo, should probably make this a switch statement ¯\_(ツ)_/¯
   if (e.target.classList.contains('filter-btn')) {
     if (e.target.classList.contains('brightness-add')) {
       Caman('#canvas', img, function() {
@@ -87,6 +88,7 @@ document.addEventListener('click', e => {
       });
     }
   } // end target filter btns
+  return;
 });
 
 revertBtn.addEventListener('click', () => {
@@ -98,6 +100,7 @@ revertBtn.addEventListener('click', () => {
   Caman('#canvas', img, function() {
     this.revert();
   });
+  return;
 });
 
 uploadFile.addEventListener('change', e => {
@@ -134,9 +137,8 @@ downloadBtn.addEventListener('click', () => {
     const fileExtension = `.${fileName.split('.').pop()}`;
     const lastIndex = fileName.lastIndexOf('.');
     const file = fileName.slice(0, lastIndex);
-
     const newFileName = `${file}-edited${fileExtension}`;
-    console.log(newFileName);
+
     download(canvas, newFileName, fileExtension);
     return;
   }
@@ -152,4 +154,5 @@ function download(canvas, fileName, fileExtension) {
 
   e = new MouseEvent('click');
   link.dispatchEvent(e);
+  return;
 }
