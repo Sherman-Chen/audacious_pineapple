@@ -8,6 +8,12 @@ const uploadFile = document.getElementById('upload-file');
 const downloadBtn = document.getElementById('download-btn');
 const revertBtn = document.getElementById('revertn-btn');
 
+document.addEventListener('click', e => {
+  if (e.target.classList.contains('filter-btn')) {
+    console.log('you clicked a filter button');
+  }
+});
+
 uploadFile.addEventListener('change', e => {
   const file = document.getElementById('upload-file').files[0];
   const fileReader = new FileReader();
