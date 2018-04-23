@@ -118,6 +118,26 @@ document.addEventListener('click', e => {
         this.revert();
         this.herMajesty().render();
       });
+    } else if (e.target.classList.contains('sunrise-add')) {
+      Caman('#canvas', img, function() {
+        this.revert();
+        this.sunrise().render();
+      });
+    } else if (e.target.classList.contains('hazyDays-add')) {
+      Caman('#canvas', img, function() {
+        this.revert();
+        this.hazyDays().render();
+      });
+    } else if (e.target.classList.contains('hemingway-add')) {
+      Caman('#canvas', img, function() {
+        this.revert();
+        this.hemingway().render();
+      });
+    } else if (e.target.classList.contains('love-add')) {
+      Caman('#canvas', img, function() {
+        this.revert();
+        this.love().render();
+      });
     }
   } // end target filter btns
   return;
