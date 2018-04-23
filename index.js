@@ -1,14 +1,17 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-
-// let img = new Image();
-let fileName = '';
+let fileName;
 
 const uploadFile = document.getElementById('upload-file');
 const downloadBtn = document.getElementById('download-btn');
 const revertBtn = document.getElementById('revert-btn');
 
 document.addEventListener('click', e => {
+  if (!fileName && e.target.classList.contains('btn')) {
+    alert('Please upload a file first');
+    return;
+  }
+
   if (e.target.classList.contains('filter-btn')) {
     if (e.target.classList.contains('brightness-add')) {
       Caman('#canvas', img, function() {
@@ -87,6 +90,11 @@ document.addEventListener('click', e => {
 });
 
 revertBtn.addEventListener('click', () => {
+  if (!fileName) {
+    alert('Please upload a file first');
+    return;
+  }
+
   Caman('#canvas', img, function() {
     this.revert();
   });
@@ -120,3 +128,28 @@ uploadFile.addEventListener('change', e => {
     return;
   }
 });
+
+downloadBtn.addEventListener('click', () => {
+  if (fileName) {
+    const fileExtension = `.${fileName.split('.').pop()}`;
+    const lastIndex = fileName.lastIndexOf('.');
+    const file = fileName.slice(0, lastIndex);
+
+    const newFileName = `${file}-edited${fileExtension}`;
+    console.log(newFileName);
+    download(canvas, newFileName, fileExtension);
+    return;
+  }
+
+  return;
+});
+
+function download(canvas, fileName, fileExtension) {
+  let e;
+  const link = document.createElement('a');
+  link.download = fileName;
+  link.href = canvas.toDataURL(`image/${fileExtension}`, 0.8);
+
+  e = new MouseEvent('click');
+  link.dispatchEvent(e);
+}
