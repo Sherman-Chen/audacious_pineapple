@@ -6,7 +6,7 @@ let fileName = '';
 
 const uploadFile = document.getElementById('upload-file');
 const downloadBtn = document.getElementById('download-btn');
-const revertBtn = document.getElementById('revertn-btn');
+const revertBtn = document.getElementById('revert-btn');
 
 document.addEventListener('click', e => {
   if (e.target.classList.contains('filter-btn')) {
@@ -44,22 +44,52 @@ document.addEventListener('click', e => {
       });
     } else if (e.target.classList.contains('vintage-add')) {
       Caman('#canvas', img, function() {
+        this.revert();
         this.vintage().render();
       });
     } else if (e.target.classList.contains('lomo-add')) {
       Caman('#canvas', img, function() {
+        this.revert();
         this.lomo().render();
       });
     } else if (e.target.classList.contains('clarity-add')) {
       Caman('#canvas', img, function() {
+        this.revert();
         this.clarity().render();
       });
-    } else if (e.target.classList.contains('sincity-add')) {
+    } else if (e.target.classList.contains('sin-city-add')) {
       Caman('#canvas', img, function() {
-        this.sincity().render();
+        this.revert();
+        this.sinCity().render();
+      });
+    } else if (e.target.classList.contains('crossprocess-add')) {
+      Caman('#canvas', img, function() {
+        this.revert();
+        this.crossProcess().render();
+      });
+    } else if (e.target.classList.contains('pinhole-add')) {
+      Caman('#canvas', img, function() {
+        this.revert();
+        this.pinhole().render();
+      });
+    } else if (e.target.classList.contains('nostalgia-add')) {
+      Caman('#canvas', img, function() {
+        this.revert();
+        this.nostalgia().render();
+      });
+    } else if (e.target.classList.contains('hermajesty-add')) {
+      Caman('#canvas', img, function() {
+        this.revert();
+        this.herMajesty().render();
       });
     }
   } // end target filter btns
+});
+
+revertBtn.addEventListener('click', () => {
+  Caman('#canvas', img, function() {
+    this.revert();
+  });
 });
 
 uploadFile.addEventListener('change', e => {
