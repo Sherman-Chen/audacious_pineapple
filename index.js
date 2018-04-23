@@ -18,7 +18,31 @@ document.addEventListener('click', e => {
       Caman('#canvas', img, function() {
         this.brightness(-5).render();
       });
-    } // end target brightness btns
+    } else if (e.target.classList.contains('contrast-add')) {
+      Caman('#canvas', img, function() {
+        this.contrast(5).render();
+      });
+    } else if (e.target.classList.contains('contrast-remove')) {
+      Caman('#canvas', img, function() {
+        this.contrast(-5).render();
+      });
+    } else if (e.target.classList.contains('saturation-add')) {
+      Caman('#canvas', img, function() {
+        this.saturation(5).render();
+      });
+    } else if (e.target.classList.contains('saturation-remove')) {
+      Caman('#canvas', img, function() {
+        this.saturation(-5).render();
+      });
+    } else if (e.target.classList.contains('vibrance-add')) {
+      Caman('#canvas', img, function() {
+        this.vibrance(5).render();
+      });
+    } else if (e.target.classList.contains('vibrance-remove')) {
+      Caman('#canvas', img, function() {
+        this.vibrance(-5).render();
+      });
+    }
   } // end target filter btns
 });
 
