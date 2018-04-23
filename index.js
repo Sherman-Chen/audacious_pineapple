@@ -46,6 +46,38 @@ document.addEventListener('click', e => {
       Caman('#canvas', img, function() {
         this.vibrance(-5).render();
       });
+    } else if (e.target.classList.contains('hue-add')) {
+      Caman('#canvas', img, function() {
+        this.hue(1).render();
+      });
+    } else if (e.target.classList.contains('hue-remove')) {
+      Caman('#canvas', img, function() {
+        this.revert();
+      });
+    } else if (e.target.classList.contains('sepia-add')) {
+      Caman('#canvas', img, function() {
+        this.sepia(5).render();
+      });
+    } else if (e.target.classList.contains('sepia-remove')) {
+      Caman('#canvas', img, function() {
+        this.sepia(-5).render();
+      });
+    } else if (e.target.classList.contains('sharpen-add')) {
+      Caman('#canvas', img, function() {
+        this.sharpen(5).render();
+      });
+    } else if (e.target.classList.contains('sharpen-remove')) {
+      Caman('#canvas', img, function() {
+        this.sharpen(-5).render();
+      });
+    } else if (e.target.classList.contains('noise-add')) {
+      Caman('#canvas', img, function() {
+        this.noise(3).render();
+      });
+    } else if (e.target.classList.contains('noise-remove')) {
+      Caman('#canvas', img, function() {
+        this.revert();
+      });
     } else if (e.target.classList.contains('vintage-add')) {
       Caman('#canvas', img, function() {
         this.revert();
