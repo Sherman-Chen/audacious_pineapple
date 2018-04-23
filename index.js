@@ -10,8 +10,16 @@ const revertBtn = document.getElementById('revertn-btn');
 
 document.addEventListener('click', e => {
   if (e.target.classList.contains('filter-btn')) {
-    console.log('you clicked a filter button');
-  }
+    if (e.target.classList.contains('brightness-add')) {
+      Caman('#canvas', img, function() {
+        this.brightness(5).render();
+      });
+    } else if (e.target.classList.contains('brightness-remove')) {
+      Caman('#canvas', img, function() {
+        this.brightness(-5).render();
+      });
+    } // end target brightness btns
+  } // end target filter btns
 });
 
 uploadFile.addEventListener('change', e => {
